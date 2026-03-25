@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- ═══ PRIMARY SEO ═══ -->
+<title>Daniyal Javed Choudhary | Embedded Firmware & IoT Engineer</title>
+<meta name="description" content="Daniyal Javed Choudhary — Embedded Firmware & IoT Engineer from Islamabad, Pakistan. Specialist in ESP32, STM32, FreeRTOS, Node-RED & MQTT. Available worldwide on Upwork and Fiverr.">
+<meta name="keywords" content="Daniyal Javed Choudhary, Embedded Systems Engineer, IoT Developer, ESP32 Developer, STM32 Firmware, FreeRTOS, Node-RED Expert, MQTT, IoT Pakistan, Freelance Embedded Engineer, Islamabad Engineer">
+<meta name="author" content="Daniyal Javed Choudhary">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://daniyaljavedchoudhary.github.io/">
+
+<!-- ═══ OPEN GRAPH ═══ -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://daniyaljavedchoudhary.github.io/">
+<meta property="og:title" content="Daniyal Javed Choudhary | Embedded Firmware & IoT Engineer">
+<meta property="og:description" content="Building hardware-to-cloud systems — from bare-metal firmware on ESP32/STM32 to real-time IoT dashboards. Available for freelance worldwide.">
+<meta property="og:site_name" content="Daniyal Javed Choudhary Portfolio">
+
+<!-- ═══ TWITTER CARD ═══ -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Daniyal Javed Choudhary | Embedded Firmware & IoT Engineer">
+<meta name="twitter:description" content="ESP32 · STM32 · FreeRTOS · Node-RED · MQTT — Building hardware-to-cloud systems. Available for freelance.">
+
+<!-- ═══ STRUCTURED DATA ═══ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Daniyal Javed Choudhary",
+  "alternateName": "Muhammad Daniyal Javed Choudhary",
+  "jobTitle": "Embedded Firmware & IoT Engineer",
+  "description": "Embedded Firmware & IoT Engineer specializing in ESP32, STM32, FreeRTOS, Node-RED and MQTT.",
+  "url": "https://daniyaljavedchoudhary.github.io",
+  "sameAs": [
+    "https://www.linkedin.com/in/daniyal-choudhary",
+    "https://github.com/DaniyalJavedChoudhary",
+    "https://www.upwork.com/freelancers/~01a0053966b1f4ac5c",
+    "https://www.fiverr.com/daniyal_ch944"
+  ],
+  "address": { "@type": "PostalAddress", "addressLocality": "Islamabad", "addressCountry": "PK" },
+  "alumniOf": { "@type": "CollegeOrUniversity", "name": "PIEAS" }
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=DM+Serif+Display:ital@0;1&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#06080c;
+  --bg1:#0b0f17;
+  --bg2:#0f1520;
+  --s1:rgba(255,255,255,0.04);
+  --s2:rgba(255,255,255,0.07);
+  --b1:rgba(255,255,255,0.07);
+  --b2:rgba(255,255,255,0.14);
+  --text:#eef2ff;
+  --muted:#6b7a99;
+  --muted2:#9aa5c0;
+  --lime:#c8f135;
+  --lime2:#a8d020;
+  --blue:#4f8ef7;
+  --cyan:#22d3ee;
+  --violet:#a78bfa;
+  --rose:#fb7185;
+  --amber:#fbbf24;
+}
+
+html{scroll-behavior:smooth;scrollbar-width:thin;scrollbar-color:rgba(200,241,53,0.3) transparent}
+body{
+  background:var(--bg);color:var(--text);
+  font-family:'Plus Jakarta Sans',sans-serif;
+  overflow-x:hidden;cursor:none;
+}
+
+body::before{
+  content:'';position:fixed;inset:0;z-index:500;pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  opacity:.3;mix-blend-mode:overlay;
+}
+
+/* ── CURSOR ── */
+#cur{position:fixed;z-index:9999;pointer-events:none;transform:translate(-50%,-50%);mix-blend-mode:exclusion}
+#cur-dot{width:10px;height:10px;background:#fff;border-radius:50%}
+#cur-ring{
+  position:fixed;z-index:9998;pointer-events:none;transform:translate(-50%,-50%);
+  width:44px;height:44px;border:1.5px solid rgba(200,241,53,0.5);border-radius:50%;
+  transition:all .2s ease;
+}
+.cur-hover #cur-ring{width:68px;height:68px;border-color:var(--lime);background:rgba(200,241,53,0.04)}
+
+/* ── CANVAS ── */
+#bg-canvas{position:fixed;inset:0;z-index:0;pointer-events:none}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:1.4rem clamp(1.5rem,5vw,5rem);
+  transition:all .4s;
+}
+nav.stuck{
+  background:rgba(6,8,12,0.9);backdrop-filter:blur(24px);
+  border-bottom:1px solid var(--b1);padding-top:1rem;padding-bottom:1rem;
+}
+.nav-logo{
+  font-family:'DM Serif Display',serif;font-size:1.15rem;
+  color:#fff;text-decoration:none;letter-spacing:-.01em;
+}
+.nav-logo em{color:var(--lime);font-style:normal}
+.nav-links{display:flex;gap:2.2rem;list-style:none;align-items:center}
+.nav-links a{
+  color:var(--muted2);text-decoration:none;font-size:.82rem;
+  font-weight:500;letter-spacing:.03em;transition:color .2s;
+}
+.nav-links a:hover{color:#fff}
+.nav-hire{
+  background:var(--lime)!important;color:#06080c!important;
+  padding:.5rem 1.3rem;border-radius:100px;
+  font-weight:700!important;
+  transition:all .2s!important;
+}
+.nav-hire:hover{background:#d8ff3a!important;box-shadow:0 0 28px rgba(200,241,53,.45)!important}
+
+/* ── HERO ── */
+#hero{
+  position:relative;z-index:1;min-height:100vh;
+  display:flex;flex-direction:column;justify-content:flex-end;
+  padding:0 clamp(1.5rem,6vw,7rem) clamp(3rem,5vw,5rem);
+  overflow:hidden;
+}
+
+.hero-bg-text{
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-54%);
+  font-family:'DM Serif Display',serif;
+  font-size:clamp(8rem,20vw,22rem);font-style:italic;
+  color:rgba(255,255,255,0.022);letter-spacing:-.04em;
+  white-space:nowrap;pointer-events:none;user-select:none;line-height:1;
+}
+
+.hero-eyebrow{
+  display:inline-flex;align-items:center;gap:.6rem;
+  font-size:.7rem;font-weight:700;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--lime);margin-bottom:1.6rem;
+  opacity:0;animation:riseUp .7s .3s ease forwards;
+}
+.hero-eyebrow .dot{
+  width:7px;height:7px;background:var(--lime);border-radius:50%;
+  animation:blink 1.8s ease-in-out infinite;
+}
+@keyframes blink{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.35;transform:scale(.65)}}
+
+h1.hero-title{
+  font-family:'DM Serif Display',serif;
+  font-size:clamp(3.6rem,9.5vw,10rem);
+  line-height:.92;letter-spacing:-.04em;color:#fff;
+  margin-bottom:2.5rem;
+  opacity:0;animation:riseUp .8s .5s ease forwards;
+}
+h1.hero-title .italic{font-style:italic;color:var(--lime)}
+h1.hero-title .outline{
+  -webkit-text-stroke:1.5px rgba(255,255,255,.3);color:transparent;
+}
+
+.hero-bottom{
+  display:flex;align-items:flex-end;justify-content:space-between;
+  flex-wrap:wrap;gap:2rem;
+  opacity:0;animation:riseUp .7s .8s ease forwards;
+}
+.hero-desc{max-width:400px;font-size:.92rem;color:var(--muted2);line-height:1.75}
+.hero-desc strong{color:#fff;font-weight:600}
+.hero-cta-group{display:flex;gap:.8rem;flex-wrap:wrap;align-items:center}
+
+/* BUTTONS */
+.btn-lime{
+  display:inline-flex;align-items:center;gap:.5rem;
+  background:var(--lime);color:#06080c;
+  padding:.75rem 1.7rem;border-radius:100px;
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:.82rem;font-weight:800;letter-spacing:.03em;
+  text-decoration:none;transition:all .25s;border:none;cursor:none;
+}
+.btn-lime:hover{background:#d8ff3a;transform:translateY(-2px);box-shadow:0 12px 36px rgba(200,241,53,.35)}
+.btn-ghost{
+  display:inline-flex;align-items:center;gap:.5rem;
+  background:transparent;color:var(--text);
+  padding:.75rem 1.5rem;border-radius:100px;
+  border:1.5px solid var(--b2);
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:.82rem;font-weight:600;
+  text-decoration:none;transition:all .25s;cursor:none;
+}
+.btn-ghost:hover{border-color:rgba(200,241,53,.5);color:var(--lime);transform:translateY(-2px)}
+
+.hero-scroll{
+  position:absolute;bottom:3rem;left:50%;transform:translateX(-50%);
+  display:flex;flex-direction:column;align-items:center;gap:.5rem;z-index:2;
+  opacity:0;animation:riseUp .6s 1.5s ease forwards;
+}
+.hero-scroll span{font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+.scroll-bar{width:1px;height:56px;background:linear-gradient(var(--lime),transparent);animation:scrl 2s ease-in-out infinite}
+@keyframes scrl{0%,100%{opacity:.5;transform:scaleY(1)}50%{opacity:1;transform:scaleY(1.15)}}
+@keyframes riseUp{from{opacity:0;transform:translateY(32px)}to{opacity:1;transform:translateY(0)}}
+
+/* ── MARQUEE ── */
+.marquee-wrap{
+  position:relative;z-index:1;background:var(--lime);
+  padding:.85rem 0;overflow:hidden;
+}
+.marquee-track{display:flex;width:max-content;animation:mq 28s linear infinite}
+.marquee-track:hover{animation-play-state:paused}
+.marquee-item{
+  display:flex;align-items:center;gap:1.2rem;padding:0 2rem;
+  font-size:.78rem;font-weight:800;letter-spacing:.1em;
+  text-transform:uppercase;color:#06080c;white-space:nowrap;
+}
+.msep{color:rgba(0,0,0,.35)}
+@keyframes mq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ── SECTION BASE ── */
+section{position:relative;z-index:1;padding:clamp(5rem,10vw,9rem) clamp(1.5rem,6vw,7rem)}
+
+.s-tag{
+  display:inline-flex;align-items:center;gap:.6rem;
+  font-family:'Fira Code',monospace;font-size:.68rem;
+  color:var(--lime);letter-spacing:.12em;margin-bottom:.8rem;
+}
+.s-tag::before{content:'//';color:var(--muted);margin-right:.2rem}
+
+h2.s-title{
+  font-family:'DM Serif Display',serif;
+  font-size:clamp(2.4rem,5vw,4.5rem);
+  letter-spacing:-.03em;color:#fff;line-height:1.0;
+  margin-bottom:1.2rem;
+}
+h2.s-title .it{font-style:italic;color:var(--lime)}
+.s-sub{color:var(--muted);font-size:.92rem;line-height:1.75;max-width:500px;margin-bottom:3.5rem}
+
+/* ── ABOUT ── */
+#about{background:var(--bg1)}
+.about-layout{display:grid;grid-template-columns:1fr 1.1fr;gap:5rem;align-items:start}
+.about-photo-wrap{position:sticky;top:120px}
+.photo-frame{
+  width:100%;aspect-ratio:3/4;border-radius:24px;overflow:hidden;
+  background:var(--bg2);border:1px solid var(--b1);
+  display:flex;align-items:center;justify-content:center;position:relative;
+}
+.photo-frame img{width:100%;height:100%;object-fit:cover}
+.photo-frame::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(200,241,53,.06),rgba(79,142,247,.04));
+  pointer-events:none;
+}
+.photo-placeholder{
+  text-align:center;font-family:'Fira Code',monospace;
+  font-size:.72rem;color:var(--muted);line-height:2.2;
+  padding:2rem;
+}
+.photo-placeholder .big{font-size:4rem;display:block;margin-bottom:.5rem}
+.photo-badge{
+  position:absolute;bottom:1.2rem;left:1.2rem;right:1.2rem;
+  background:rgba(6,8,12,.88);backdrop-filter:blur(12px);
+  border:1px solid var(--b2);border-radius:12px;padding:.9rem 1.1rem;
+  display:flex;align-items:center;justify-content:space-between;
+  z-index:2;
+}
+.pb-name{font-size:.82rem;font-weight:700;color:#fff}
+.pb-role{font-size:.65rem;color:var(--muted2);margin-top:.1rem}
+.pb-avail{
+  font-size:.6rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--lime);background:rgba(200,241,53,.12);
+  border:1px solid rgba(200,241,53,.25);border-radius:100px;padding:.25rem .7rem;
+}
+
+.about-content p{color:var(--muted2);font-size:.93rem;line-height:1.85;margin-bottom:1.2rem}
+.about-content p strong{color:#fff;font-weight:700}
+.about-content a{color:var(--lime);text-decoration:none}
+.about-content a:hover{text-decoration:underline}
+
+.stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin:2.5rem 0}
+.stat-box{
+  background:var(--s1);border:1px solid var(--b1);border-radius:16px;
+  padding:1.3rem;text-align:center;transition:all .25s;
+}
+.stat-box:hover{background:var(--s2);border-color:rgba(200,241,53,.2);transform:translateY(-3px)}
+.stat-n{font-family:'DM Serif Display',serif;font-size:2.2rem;font-style:italic;color:var(--lime);line-height:1}
+.stat-l{font-size:.65rem;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;margin-top:.3rem;font-weight:600}
+
+.timeline{margin-top:2rem}
+.timeline h3{font-size:.7rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:1.2rem}
+.tl-item{display:flex;gap:1rem;padding:.9rem 0;border-bottom:1px solid var(--b1)}
+.tl-item:last-child{border-bottom:none}
+.tl-dot{width:8px;height:8px;background:var(--lime);border-radius:50%;flex-shrink:0;margin-top:.42rem}
+.tl-title{font-size:.85rem;font-weight:700;color:#fff}
+.tl-sub{font-size:.73rem;color:var(--muted2);margin-top:.1rem}
+.tl-date{font-size:.65rem;color:var(--muted);margin-top:.2rem;font-family:'Fira Code',monospace}
+
+/* ── SKILLS ── */
+#skills{background:var(--bg)}
+.skills-layout{display:grid;grid-template-columns:280px 1fr;gap:4rem;align-items:start}
+.skills-intro{position:sticky;top:120px}
+.skills-intro p{color:var(--muted);font-size:.88rem;line-height:1.75;margin-bottom:2rem}
+
+.skills-grid{
+  display:flex;flex-direction:column;gap:1px;
+  background:var(--b1);border:1px solid var(--b1);border-radius:20px;overflow:hidden;
+}
+.sk-row{
+  display:flex;align-items:center;
+  background:var(--bg);padding:1.4rem 1.8rem;
+  transition:all .25s;gap:1.5rem;cursor:default;position:relative;overflow:hidden;
+}
+.sk-row::before{
+  content:'';position:absolute;left:0;top:0;bottom:0;width:0;
+  background:linear-gradient(90deg,rgba(200,241,53,.07),transparent);
+  transition:width .35s ease;
+}
+.sk-row:hover::before{width:100%}
+.sk-row:hover{background:var(--bg1)}
+.sk-num{font-family:'Fira Code',monospace;font-size:.7rem;color:var(--muted);width:28px;flex-shrink:0}
+.sk-icon{font-size:1.5rem;width:38px;flex-shrink:0;text-align:center}
+.sk-info{flex:1}
+.sk-name{font-size:.9rem;font-weight:700;color:#fff;margin-bottom:.3rem}
+.sk-tags{display:flex;flex-wrap:wrap;gap:.35rem}
+.sk-tag{
+  font-size:.6rem;font-weight:600;padding:.2rem .6rem;border-radius:100px;
+  background:var(--s1);border:1px solid var(--b1);color:var(--muted2);
+  letter-spacing:.04em;transition:all .2s;
+}
+.sk-row:hover .sk-tag{background:rgba(200,241,53,.07);border-color:rgba(200,241,53,.2);color:var(--lime)}
+.sk-bar{width:80px;flex-shrink:0;height:4px;background:var(--b1);border-radius:100px;overflow:hidden}
+.sk-fill{height:100%;background:linear-gradient(90deg,var(--lime),var(--cyan));border-radius:100px;transform:scaleX(0);transform-origin:left;transition:transform .9s .15s ease}
+.sk-row.vis .sk-fill{transform:scaleX(1)}
+
+/* ── PROJECTS ── */
+#projects{background:var(--bg1)}
+.projects-header{display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:1rem;margin-bottom:3.5rem}
+.proj-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem}
+
+.pc{
+  background:var(--bg);border:1px solid var(--b1);border-radius:24px;padding:2rem;
+  transition:all .35s cubic-bezier(.34,1.56,.64,1);
+  display:flex;flex-direction:column;gap:1.2rem;
+  position:relative;overflow:hidden;
+}
+.pc::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(circle at 75% 15%,rgba(200,241,53,.05),transparent 55%);
+  opacity:0;transition:opacity .4s;
+}
+.pc:hover::before{opacity:1}
+.pc:hover{
+  transform:translateY(-10px) scale(1.01);
+  border-color:rgba(200,241,53,.18);
+  box-shadow:0 30px 80px rgba(0,0,0,.6),0 0 0 1px rgba(200,241,53,.06);
+}
+.pc.featured{grid-column:span 2}
+
+.pc-top{display:flex;align-items:flex-start;justify-content:space-between;gap:1rem}
+.pc-icon{
+  width:52px;height:52px;border-radius:14px;
+  background:var(--s2);border:1px solid var(--b1);
+  display:flex;align-items:center;justify-content:center;font-size:1.5rem;flex-shrink:0;
+}
+.pc-badges{display:flex;flex-direction:column;align-items:flex-end;gap:.4rem}
+.badge{font-size:.58rem;font-weight:700;padding:.22rem .65rem;border-radius:100px;letter-spacing:.08em;text-transform:uppercase}
+.b-client{background:rgba(16,185,129,.12);color:#10b981;border:1px solid rgba(16,185,129,.2)}
+.b-fyp{background:rgba(251,191,36,.12);color:var(--amber);border:1px solid rgba(251,191,36,.2)}
+.b-oss{background:rgba(79,142,247,.12);color:var(--blue);border:1px solid rgba(79,142,247,.2)}
+
+.pc-title{font-family:'DM Serif Display',serif;font-size:1.15rem;color:#fff;line-height:1.2}
+.pc.featured .pc-title{font-size:1.4rem}
+.pc-desc{font-size:.78rem;color:var(--muted2);line-height:1.75;flex:1}
+.pc-stack{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:auto}
+.stag{
+  font-size:.58rem;font-weight:700;padding:.22rem .6rem;border-radius:100px;
+  background:rgba(34,211,238,.07);border:1px solid rgba(34,211,238,.12);
+  color:var(--cyan);letter-spacing:.04em;
+}
+
+.pc.featured .pc-inner{display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:start}
+.pc.featured .pc-right{
+  background:var(--bg1);border:1px solid var(--b1);border-radius:16px;
+  padding:1.5rem;font-family:'Fira Code',monospace;font-size:.72rem;line-height:1.9;color:var(--muted2);
+}
+.pc.featured .pc-right .hl{color:var(--lime)}
+.pc.featured .pc-right .hl2{color:var(--cyan)}
+.pc.featured .pc-right .cm{color:var(--muted)}
+
+/* ── HIRE ── */
+#hire{background:var(--bg)}
+.hire-layout{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start}
+.hire-left{position:sticky;top:120px}
+.hire-left p{color:var(--muted);font-size:.9rem;line-height:1.8;margin-bottom:2rem}
+
+.platform-cards{display:flex;flex-direction:column;gap:.8rem;margin-bottom:2rem}
+.plat-card{
+  display:flex;align-items:center;gap:1rem;
+  background:var(--s1);border:1px solid var(--b1);border-radius:14px;
+  padding:1.1rem 1.3rem;text-decoration:none;color:var(--text);transition:all .25s;
+}
+.plat-card:hover{background:var(--s2);border-color:var(--b2);transform:translateX(4px)}
+.plat-icon{font-size:1.5rem;flex-shrink:0}
+.plat-name{font-size:.85rem;font-weight:700;color:#fff}
+.plat-note{font-size:.68rem;color:var(--muted);margin-top:.1rem}
+.plat-arr{margin-left:auto;color:var(--muted);transition:transform .2s}
+.plat-card:hover .plat-arr{transform:translateX(4px);color:var(--lime)}
+
+.service-list{display:flex;flex-direction:column;gap:1px;background:var(--b1);border:1px solid var(--b1);border-radius:20px;overflow:hidden}
+.srv{background:var(--bg);padding:1.5rem;display:flex;gap:1.2rem;align-items:flex-start;transition:background .25s}
+.srv:hover{background:var(--bg1)}
+.srv-icon{
+  width:42px;height:42px;border-radius:10px;border:1px solid var(--b1);
+  display:flex;align-items:center;justify-content:center;font-size:1.1rem;
+  flex-shrink:0;background:var(--s1);
+}
+.srv-title{font-size:.88rem;font-weight:700;color:#fff;margin-bottom:.3rem}
+.srv-desc{font-size:.75rem;color:var(--muted);line-height:1.6}
+
+/* ── CTA ── */
+#cta{
+  background:var(--bg1);text-align:center;
+  border-top:1px solid var(--b1);overflow:hidden;position:relative;
+}
+#cta::before{
+  content:'';position:absolute;top:-200px;left:50%;transform:translateX(-50%);
+  width:700px;height:700px;border-radius:50%;
+  background:radial-gradient(circle,rgba(200,241,53,.055),transparent 65%);
+  pointer-events:none;
+}
+.cta-line{
+  font-family:'DM Serif Display',serif;
+  font-size:clamp(3rem,8vw,8.5rem);
+  line-height:.9;letter-spacing:-.04em;color:#fff;margin-bottom:2rem;
+}
+.cta-line .it{font-style:italic;color:var(--lime)}
+.cta-line .outline{-webkit-text-stroke:1.5px rgba(255,255,255,.28);color:transparent}
+.cta-sub{color:var(--muted2);font-size:.92rem;line-height:1.7;max-width:480px;margin:0 auto 2.5rem}
+.cta-links{display:flex;justify-content:center;flex-wrap:wrap;gap:.8rem}
+
+/* ── FOOTER ── */
+footer{
+  border-top:1px solid var(--b1);
+  padding:2rem clamp(1.5rem,6vw,7rem);
+  display:flex;justify-content:space-between;align-items:center;
+  flex-wrap:wrap;gap:1rem;font-size:.72rem;color:var(--muted);
+  position:relative;z-index:1;
+}
+footer a{color:var(--muted2);text-decoration:none;transition:color .2s}
+footer a:hover{color:var(--lime)}
+.footer-code{font-family:'Fira Code',monospace;font-size:.65rem}
+.footer-code .v{color:var(--lime)}
+
+/* ── REVEAL ── */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .65s ease,transform .65s ease}
+.reveal.visible{opacity:1;transform:none}
+.reveal.d1{transition-delay:.1s}
+.reveal.d2{transition-delay:.2s}
+.reveal.d3{transition-delay:.3s}
+
+/* ── RESPONSIVE ── */
+@media(max-width:1024px){
+  .about-layout,.skills-layout,.hire-layout{grid-template-columns:1fr}
+  .about-photo-wrap,.skills-intro,.hire-left{position:relative;top:auto}
+  .about-photo-wrap{max-width:380px}
+  .pc.featured .pc-inner{grid-template-columns:1fr}
+  .pc.featured .pc-right{display:none}
+}
+@media(max-width:768px){
+  .proj-grid{grid-template-columns:1fr}
+  .pc.featured{grid-column:span 1}
+  .nav-links li:not(:last-child){display:none}
+  .stat-row{grid-template-columns:repeat(3,1fr)}
+}
+@media(max-width:480px){
+  .stat-row{grid-template-columns:1fr 1fr}
+  .hero-cta-group{flex-direction:column;align-items:flex-start}
+}
+</style>
+</head>
+<body>
+
+<div id="cur"><div id="cur-dot"></div></div>
+<div id="cur-ring"></div>
+<canvas id="bg-canvas"></canvas>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#" class="nav-logo">Daniyal <em>Javed</em></a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#hire">Services</a></li>
+    <li><a href="resume.pdf" download style="color:var(--muted2);font-size:.82rem;font-weight:500;text-decoration:none;transition:color .2s" onmouseenter="this.style.color='#fff'" onmouseleave="this.style.color='var(--muted2)'">↓ Resume</a></li>
+    <li><a href="#cta" class="nav-hire">Hire Me</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg-text">Engineer</div>
+
+  <div class="hero-eyebrow">
+    <span class="dot"></span>
+    Available for worldwide freelance
+  </div>
+
+  <h1 class="hero-title">
+    Daniyal<br>
+    <span class="italic">Javed</span>&nbsp;<span class="outline">Choudhary</span>
+  </h1>
+
+  <div class="hero-bottom">
+    <div class="hero-desc">
+      <strong>Embedded Firmware & IoT Engineer</strong> based in Islamabad, Pakistan. I build systems that bridge hardware and cloud — from bare-metal ESP32/STM32 firmware to live IoT dashboards.
+    </div>
+    <div class="hero-cta-group">
+      <a href="https://www.upwork.com/freelancers/~01a0053966b1f4ac5c" target="_blank" class="btn-lime">⚡ Hire on Upwork</a>
+      <a href="#projects" class="btn-ghost">View Projects →</a>
+      <a href="resume.pdf" download class="btn-ghost">↓ Resume</a>
+    </div>
+  </div>
+
+  <div class="hero-scroll">
+    <span>scroll</span>
+    <div class="scroll-bar"></div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-wrap" aria-hidden="true">
+  <div class="marquee-track">
+    <span class="marquee-item">ESP32 <span class="msep">✦</span></span>
+    <span class="marquee-item">STM32 <span class="msep">✦</span></span>
+    <span class="marquee-item">FreeRTOS <span class="msep">✦</span></span>
+    <span class="marquee-item">Node-RED <span class="msep">✦</span></span>
+    <span class="marquee-item">MQTT <span class="msep">✦</span></span>
+    <span class="marquee-item">LoRa <span class="msep">✦</span></span>
+    <span class="marquee-item">ThingsBoard <span class="msep">✦</span></span>
+    <span class="marquee-item">InfluxDB <span class="msep">✦</span></span>
+    <span class="marquee-item">Grafana <span class="msep">✦</span></span>
+    <span class="marquee-item">AWS IoT <span class="msep">✦</span></span>
+    <span class="marquee-item">ESP-IDF <span class="msep">✦</span></span>
+    <span class="marquee-item">Docker <span class="msep">✦</span></span>
+    <span class="marquee-item">Raspberry Pi <span class="msep">✦</span></span>
+    <span class="marquee-item">BLE <span class="msep">✦</span></span>
+    <span class="marquee-item">ESP32 <span class="msep">✦</span></span>
+    <span class="marquee-item">STM32 <span class="msep">✦</span></span>
+    <span class="marquee-item">FreeRTOS <span class="msep">✦</span></span>
+    <span class="marquee-item">Node-RED <span class="msep">✦</span></span>
+    <span class="marquee-item">MQTT <span class="msep">✦</span></span>
+    <span class="marquee-item">LoRa <span class="msep">✦</span></span>
+    <span class="marquee-item">ThingsBoard <span class="msep">✦</span></span>
+    <span class="marquee-item">InfluxDB <span class="msep">✦</span></span>
+    <span class="marquee-item">Grafana <span class="msep">✦</span></span>
+    <span class="marquee-item">AWS IoT <span class="msep">✦</span></span>
+    <span class="marquee-item">ESP-IDF <span class="msep">✦</span></span>
+    <span class="marquee-item">Docker <span class="msep">✦</span></span>
+    <span class="marquee-item">Raspberry Pi <span class="msep">✦</span></span>
+    <span class="marquee-item">BLE <span class="msep">✦</span></span>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-layout">
+    <div class="about-photo-wrap reveal">
+      <div class="photo-frame">
+        <!-- REPLACE THIS WITH YOUR PHOTO: <img src="photo.jpg" alt="Daniyal Javed Choudhary"> -->
+        <div class="photo-placeholder">
+          <span class="big">📸</span>
+          <span>// Your photo here</span><br>
+          <span style="font-size:.6rem;color:#3d4a60">Replace with:<br>&lt;img src="photo.jpg"&gt;</span>
+        </div>
+        <div class="photo-badge">
+          <div>
+            <div class="pb-name">Daniyal Javed Choudhary</div>
+            <div class="pb-role">Embedded & IoT Engineer</div>
+          </div>
+          <div class="pb-avail">● Open</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="about-content">
+      <div class="s-tag reveal">about me</div>
+      <h2 class="s-title reveal">The engineer<br>behind the <span class="it">systems</span></h2>
+      <p class="reveal">I'm <strong>Daniyal Javed Choudhary</strong> — an Embedded Firmware & IoT Engineer from Islamabad, Pakistan, finishing my BS Electrical Engineering at <strong>PIEAS</strong>, graduating July 2026.</p>
+      <p class="reveal d1">My work lives where hardware meets software. I write firmware that runs on microcontrollers, design communication layers over MQTT and LoRa, and build the dashboards that turn raw sensor data into business decisions — end to end, no hand-off gaps.</p>
+      <p class="reveal d2">I've delivered production systems for international clients through <a href="https://www.upwork.com/freelancers/~01a0053966b1f4ac5c" target="_blank">Upwork</a> and <a href="https://www.fiverr.com/daniyal_ch944" target="_blank">Fiverr</a> — industrial telemetry, pool management systems, greenhouse automation. I care about clean architecture, honest communication, and systems that don't break at 3am.</p>
+
+      <div class="stat-row">
+        <div class="stat-box reveal"><div class="stat-n">1+</div><div class="stat-l">Years Freelancing</div></div>
+        <div class="stat-box reveal d1"><div class="stat-n">10+</div><div class="stat-l">Projects Shipped</div></div>
+        <div class="stat-box reveal d2"><div class="stat-n">5★</div><div class="stat-l">Fiverr Rating</div></div>
+      </div>
+
+      <div class="timeline reveal">
+        <h3>Journey</h3>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div>
+            <div class="tl-title">BS Electrical Engineering — PIEAS, Islamabad</div>
+            <div class="tl-sub">Final Year Project: Automated Batch Mixer (ESP32 + FreeRTOS industrial control)</div>
+            <div class="tl-date">2022 — Jul 2026</div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div>
+            <div class="tl-title">Freelance Embedded & IoT Engineer</div>
+            <div class="tl-sub">Upwork · Fiverr — international client projects globally</div>
+            <div class="tl-date">2023 — Present</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top:2rem;display:flex;gap:.8rem;flex-wrap:wrap" class="reveal">
+        <a href="resume.pdf" download class="btn-lime">↓ Download Resume</a>
+        <a href="https://www.linkedin.com/in/daniyal-choudhary" target="_blank" class="btn-ghost">LinkedIn →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="skills-layout">
+    <div class="skills-intro">
+      <div class="s-tag reveal">expertise</div>
+      <h2 class="s-title reveal">Technical<br><span class="it">Arsenal</span></h2>
+      <p class="reveal">The complete stack I use to take a client idea from microcontroller to deployed cloud system — with no gaps.</p>
+      <a href="#hire" class="btn-lime reveal">Work with me →</a>
+    </div>
+    <div class="skills-grid reveal">
+      <div class="sk-row">
+        <span class="sk-num">01</span><span class="sk-icon">🔩</span>
+        <div class="sk-info">
+          <div class="sk-name">Embedded Firmware</div>
+          <div class="sk-tags"><span class="sk-tag">ESP-IDF</span><span class="sk-tag">FreeRTOS</span><span class="sk-tag">STM32 HAL</span><span class="sk-tag">C/C++</span><span class="sk-tag">Arduino</span></div>
+        </div>
+        <div class="sk-bar"><div class="sk-fill" data-w=".95"></div></div>
+      </div>
+      <div class="sk-row">
+        <span class="sk-num">02</span><span class="sk-icon">📡</span>
+        <div class="sk-info">
+          <div class="sk-name">IoT Connectivity & Protocols</div>
+          <div class="sk-tags"><span class="sk-tag">MQTT</span><span class="sk-tag">LoRa</span><span class="sk-tag">BLE</span><span class="sk-tag">Wi-Fi</span><span class="sk-tag">HTTP/REST</span><span class="sk-tag">Modbus</span></div>
+        </div>
+        <div class="sk-bar"><div class="sk-fill" data-w=".92"></div></div>
+      </div>
+      <div class="sk-row">
+        <span class="sk-num">03</span><span class="sk-icon">🖥️</span>
+        <div class="sk-info">
+          <div class="sk-name">Dashboards & Automation</div>
+          <div class="sk-tags"><span class="sk-tag">Node-RED</span><span class="sk-tag">ThingsBoard</span><span class="sk-tag">Grafana</span><span class="sk-tag">InfluxDB</span><span class="sk-tag">MySQL</span></div>
+        </div>
+        <div class="sk-bar"><div class="sk-fill" data-w=".90"></div></div>
+      </div>
+      <div class="sk-row">
+        <span class="sk-num">04</span><span class="sk-icon">☁️</span>
+        <div class="sk-info">
+          <div class="sk-name">Cloud & DevOps</div>
+          <div class="sk-tags"><span class="sk-tag">AWS IoT</span><span class="sk-tag">Azure IoT</span><span class="sk-tag">Docker</span><span class="sk-tag">Linux</span><span class="sk-tag">Raspberry Pi</span></div>
+        </div>
+        <div class="sk-bar"><div class="sk-fill" data-w=".82"></div></div>
+      </div>
+      <div class="sk-row">
+        <span class="sk-num">05</span><span class="sk-icon">🔐</span>
+        <div class="sk-info">
+          <div class="sk-name">IoT Security</div>
+          <div class="sk-tags"><span class="sk-tag">TLS</span><span class="sk-tag">AES-128</span><span class="sk-tag">Secure Boot</span><span class="sk-tag">eFuse</span><span class="sk-tag">OAuth</span></div>
+        </div>
+        <div class="sk-bar"><div class="sk-fill" data-w=".80"></div></div>
+      </div>
+      <div class="sk-row">
+        <span class="sk-num">06</span><span class="sk-icon">🔗</span>
+        <div class="sk-info">
+          <div class="sk-name">API & Flow Automation</div>
+          <div class="sk-tags"><span class="sk-tag">REST API</span><span class="sk-tag">Webhooks</span><span class="sk-tag">HubSpot</span><span class="sk-tag">Google Sheets</span><span class="sk-tag">Jira</span></div>
+        </div>
+        <div class="sk-bar"><div class="sk-fill" data-w=".85"></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="projects-header">
+    <div>
+      <div class="s-tag reveal">portfolio</div>
+      <h2 class="s-title reveal">Projects I've <span class="it">Shipped</span></h2>
+    </div>
+    <p class="s-sub reveal" style="margin-bottom:0">Real systems. Real clients.<br>Production-grade, not demos.</p>
+  </div>
+
+  <div class="proj-grid">
+
+    <!-- FEATURED FYP -->
+    <div class="pc featured reveal">
+      <div class="pc-top">
+        <div class="pc-icon">🏭</div>
+        <div class="pc-badges">
+          <span class="badge b-fyp">🎓 Final Year Project</span>
+        </div>
+      </div>
+      <div class="pc-inner">
+        <div class="pc-left">
+          <div class="pc-title">Automated Batch Mixer — Industrial Control System</div>
+          <p class="pc-desc" style="margin:.8rem 0 1rem">My BS Electrical Engineering capstone project at PIEAS. A FreeRTOS-based ESP32 industrial control system for multi-stage batch mixing. Features a 5-state machine, sensor feedback loops with safety interlocks, setpoint control, and MQTT-based remote monitoring through a real-time Node-RED dashboard.</p>
+          <div class="pc-stack">
+            <span class="stag">ESP32</span><span class="stag">FreeRTOS</span><span class="stag">ESP-IDF</span>
+            <span class="stag">MQTT</span><span class="stag">Node-RED</span><span class="stag">State Machine</span><span class="stag">Safety Interlocks</span>
+          </div>
+        </div>
+        <div class="pc-right">
+<span class="cm">// system_tasks.c</span>
+<span class="hl">tasks</span>[] = {
+  <span class="hl2">"SensorAcq"</span>,     <span class="cm">// 10ms</span>
+  <span class="hl2">"MixerControl"</span>,  <span class="cm">// 50ms</span>
+  <span class="hl2">"SafetyMonitor"</span>, <span class="cm">// 20ms</span>
+  <span class="hl2">"MQTTPublish"</span>,   <span class="cm">// 500ms</span>
+}
+
+<span class="hl">state_machine</span>:
+  <span class="hl2">IDLE</span> → <span class="hl2">LOADING</span>
+  → <span class="hl2">MIXING</span> → <span class="hl2">HEATING</span>
+  → <span class="hl2">DISCHARGE</span> → <span class="hl2">IDLE</span>
+
+<span class="hl">safety</span>: hardware_interlock ✓
+<span class="hl">remote</span>: MQTT + Node-RED ✓
+        </div>
+      </div>
+    </div>
+
+    <div class="pc reveal">
+      <div class="pc-top"><div class="pc-icon">🛰️</div><div class="pc-badges"><span class="badge b-client">Client Project</span></div></div>
+      <div class="pc-title">Nova-SOC — LoRa Telemetry System</div>
+      <p class="pc-desc">ESP32 + STM32L0 field nodes transmitting AES-128 encrypted sensor data over LoRa. VPS-hosted Node-RED + Mosquitto MQTT, InfluxDB storage, and live dashboards for remote industrial monitoring.</p>
+      <div class="pc-stack"><span class="stag">ESP32</span><span class="stag">STM32L0</span><span class="stag">LoRa</span><span class="stag">MQTT</span><span class="stag">AES-128</span><span class="stag">InfluxDB</span></div>
+    </div>
+
+    <div class="pc reveal d1">
+      <div class="pc-top"><div class="pc-icon">🏊</div><div class="pc-badges"><span class="badge b-client">Client Project</span></div></div>
+      <div class="pc-title">SmartVac+ / LinerVac — Pool Management IoT</div>
+      <p class="pc-desc">Raspberry Pi 5 running Dockerised Node-RED for automated commercial pool equipment control. Remote scheduling, multi-zone sensor monitoring, alerting, and full Embedded Linux deployment.</p>
+      <div class="pc-stack"><span class="stag">Raspberry Pi 5</span><span class="stag">Docker</span><span class="stag">Node-RED</span><span class="stag">MQTT</span><span class="stag">Linux</span></div>
+    </div>
+
+    <div class="pc reveal">
+      <div class="pc-top"><div class="pc-icon">🌿</div><div class="pc-badges"><span class="badge b-client">Client Project</span></div></div>
+      <div class="pc-title">Greenhouse Automation — Multi-Zone Climate Control</div>
+      <p class="pc-desc">Node-RED Dashboard 2.0 controlling HVAC, irrigation, and lighting across multiple greenhouse zones. MQTT-driven thresholds, manual overrides, InfluxDB logging, and Grafana analytics.</p>
+      <div class="pc-stack"><span class="stag">Node-RED</span><span class="stag">Dashboard 2.0</span><span class="stag">MQTT</span><span class="stag">Grafana</span><span class="stag">InfluxDB</span></div>
+    </div>
+
+    <div class="pc reveal d1">
+      <div class="pc-top"><div class="pc-icon">⚡</div><div class="pc-badges"><span class="badge b-oss">Open Source</span></div></div>
+      <div class="pc-title">Smart Energy Meter</div>
+      <p class="pc-desc">Real-time energy monitoring with CT sensors, ESP32 firmware, and live Grafana dashboard. Per-circuit power tracking, anomaly alerting, and historical trend analysis via InfluxDB.</p>
+      <div class="pc-stack"><span class="stag">ESP32</span><span class="stag">Grafana</span><span class="stag">InfluxDB</span><span class="stag">MQTT</span><span class="stag">CT Sensors</span></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- HIRE -->
+<section id="hire">
+  <div class="hire-layout">
+    <div class="hire-left">
+      <div class="s-tag reveal">services</div>
+      <h2 class="s-title reveal">What I can<br><span class="it">build for you</span></h2>
+      <p class="reveal">Available for freelance contracts, fixed-price gigs, and long-term partnerships. Based in Islamabad — async-friendly with clients everywhere.</p>
+      <div class="platform-cards reveal">
+        <a href="https://www.upwork.com/freelancers/~01a0053966b1f4ac5c" target="_blank" class="plat-card">
+          <span class="plat-icon">💼</span>
+          <div><div class="plat-name">Upwork</div><div class="plat-note">Hourly & fixed · $35/hr</div></div>
+          <span class="plat-arr">→</span>
+        </a>
+        <a href="https://www.fiverr.com/daniyal_ch944" target="_blank" class="plat-card">
+          <span class="plat-icon">🎯</span>
+          <div><div class="plat-name">Fiverr</div><div class="plat-note">Fixed-price packages · 5★</div></div>
+          <span class="plat-arr">→</span>
+        </a>
+        <a href="https://www.linkedin.com/in/daniyal-choudhary" target="_blank" class="plat-card">
+          <span class="plat-icon">🔗</span>
+          <div><div class="plat-name">LinkedIn</div><div class="plat-note">Direct message · Daniyal Choudhary</div></div>
+          <span class="plat-arr">→</span>
+        </a>
+      </div>
+      <a href="resume.pdf" download class="btn-lime reveal">↓ Download My Resume</a>
+    </div>
+
+    <div class="service-list reveal">
+      <div class="srv"><div class="srv-icon">📟</div><div><div class="srv-title">Firmware Development</div><p class="srv-desc">Custom ESP32 / STM32 firmware. FreeRTOS task design, peripheral drivers, OTA updates, low-power optimization and state machine architecture.</p></div></div>
+      <div class="srv"><div class="srv-icon">🌐</div><div><div class="srv-title">End-to-End IoT Systems</div><p class="srv-desc">Complete hardware-to-cloud delivery. Firmware, MQTT backend, cloud integration, and live dashboard — one engineer, zero hand-off gaps.</p></div></div>
+      <div class="srv"><div class="srv-icon">📊</div><div><div class="srv-title">IoT Dashboard & Data Pipelines</div><p class="srv-desc">Node-RED, ThingsBoard, Grafana. Real-time visualization, multi-device aggregation, alerting and time-series storage with InfluxDB.</p></div></div>
+      <div class="srv"><div class="srv-icon">🔗</div><div><div class="srv-title">API & Automation Flows</div><p class="srv-desc">Node-RED flows integrating REST APIs, webhooks and CRMs — HubSpot, Jira, Google Sheets. Business automation for IoT data pipelines.</p></div></div>
+      <div class="srv"><div class="srv-icon">🔒</div><div><div class="srv-title">IoT Security Hardening</div><p class="srv-desc">TLS, secure BLE/SoftAP provisioning, AES encryption, eFuse locking, secure boot, and signed OTA update pipelines.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="cta">
+  <div class="cta-line">
+    Let's build<br>
+    something <span class="it">real</span><br>
+    <span class="outline">together</span>
+  </div>
+  <p class="cta-sub">Got a hardware project, IoT system, or automation challenge? I respond within 4 hours.</p>
+  <div class="cta-links">
+    <a href="https://www.upwork.com/freelancers/~01a0053966b1f4ac5c" target="_blank" class="btn-lime">⚡ Start a Project on Upwork</a>
+    <a href="https://www.fiverr.com/daniyal_ch944" target="_blank" class="btn-ghost">Fiverr Packages →</a>
+    <a href="resume.pdf" download class="btn-ghost">↓ Download Resume</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div>© 2026 <strong style="color:var(--muted2)">Daniyal Javed Choudhary</strong> · Islamabad, Pakistan</div>
+  <div>
+    <a href="https://github.com/DaniyalJavedChoudhary" target="_blank">GitHub</a> ·
+    <a href="https://www.linkedin.com/in/daniyal-choudhary" target="_blank">LinkedIn</a> ·
+    <a href="https://www.upwork.com/freelancers/~01a0053966b1f4ac5c" target="_blank">Upwork</a>
+  </div>
+  <div class="footer-code">status: <span class="v">available_for_hire</span></div>
+</footer>
+
+<script>
+// ── THREE.JS ──
+(function(){
+  const canvas=document.getElementById('bg-canvas');
+  const renderer=new THREE.WebGLRenderer({canvas,alpha:true,antialias:false});
+  renderer.setPixelRatio(Math.min(devicePixelRatio,1.5));
+  renderer.setSize(window.innerWidth,window.innerHeight);
+  const scene=new THREE.Scene();
+  const camera=new THREE.PerspectiveCamera(55,window.innerWidth/window.innerHeight,0.1,500);
+  camera.position.z=40;
+
+  const N=2000;
+  const geo=new THREE.BufferGeometry();
+  const pos=new Float32Array(N*3),col=new Float32Array(N*3);
+  const pal=[[0.79,0.95,0.21],[0.31,0.56,0.97],[0.13,0.83,0.93],[0.66,0.55,0.98]];
+  for(let i=0;i<N;i++){
+    pos[i*3]=(Math.random()-.5)*120;
+    pos[i*3+1]=(Math.random()-.5)*120;
+    pos[i*3+2]=(Math.random()-.5)*80;
+    const c=pal[~~(Math.random()*pal.length)];
+    col[i*3]=c[0];col[i*3+1]=c[1];col[i*3+2]=c[2];
+  }
+  geo.setAttribute('position',new THREE.BufferAttribute(pos,3));
+  geo.setAttribute('color',new THREE.BufferAttribute(col,3));
+  scene.add(new THREE.Points(geo,new THREE.PointsMaterial({size:.1,vertexColors:true,transparent:true,opacity:.5})));
+
+  const ring=new THREE.Mesh(new THREE.TorusGeometry(14,.03,6,80),new THREE.MeshBasicMaterial({color:0xc8f135,transparent:true,opacity:.07,wireframe:true}));
+  ring.position.set(18,-8,-20);scene.add(ring);
+  const ico=new THREE.Mesh(new THREE.IcosahedronGeometry(6,1),new THREE.MeshBasicMaterial({color:0x4f8ef7,transparent:true,opacity:.05,wireframe:true}));
+  ico.position.set(-20,8,-25);scene.add(ico);
+
+  let mx=0,my=0,t=0;
+  document.addEventListener('mousemove',e=>{mx=(e.clientX/innerWidth-.5)*2;my=-(e.clientY/innerHeight-.5)*2;});
+  window.addEventListener('resize',()=>{camera.aspect=innerWidth/innerHeight;camera.updateProjectionMatrix();renderer.setSize(innerWidth,innerHeight);});
+  (function loop(){requestAnimationFrame(loop);t+=.003;
+    scene.children[0].rotation.y=t*.04;scene.children[0].rotation.x=t*.015;
+    ring.rotation.x=t*.2;ring.rotation.y=t*.12;
+    ico.rotation.x=t*.1;ico.rotation.z=t*.07;
+    camera.position.x+=(mx*3-camera.position.x)*.03;
+    camera.position.y+=(my*3-camera.position.y)*.03;
+    camera.lookAt(scene.position);renderer.render(scene,camera);
+  })();
+})();
+
+// ── CURSOR ──
+const curDot=document.getElementById('cur'),curRing=document.getElementById('cur-ring');
+let cx=0,cy=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{cx=e.clientX;cy=e.clientY;});
+(function cl(){requestAnimationFrame(cl);rx+=(cx-rx)*.1;ry+=(cy-ry)*.1;
+  curDot.style.cssText=`left:${cx}px;top:${cy}px`;
+  curRing.style.cssText=`left:${rx}px;top:${ry}px`;
+})();
+document.querySelectorAll('a,button').forEach(el=>{
+  el.addEventListener('mouseenter',()=>document.body.classList.add('cur-hover'));
+  el.addEventListener('mouseleave',()=>document.body.classList.remove('cur-hover'));
+});
+
+// ── NAV ──
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>nav.classList.toggle('stuck',scrollY>60),{passive:true});
+
+// ── REVEAL ──
+const ro=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');ro.unobserve(e.target);}});
+},{threshold:.1});
+document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
+
+// ── SKILL BARS ──
+const skObs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.classList.add('vis');
+      const fill=e.target.querySelector('.sk-fill');
+      if(fill){const w=fill.dataset.w||'.8';fill.style.transform=`scaleX(${w})`;}
+      skObs.unobserve(e.target);
+    }
+  });
+},{threshold:.3});
+document.querySelectorAll('.sk-row').forEach(r=>skObs.observe(r));
+</script>
+</body>
+</html>
