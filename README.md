@@ -69,7 +69,7 @@ RFID-based attendance tracker with Raspberry Pi, MQTT, and a Node-RED dashboard.
 | Layer | Tools |
 |---|---|
 | **Microcontrollers** | ESP32, ESP32-C6, STM32, Arduino, Raspberry Pi |
-| **Firmware** | ESP-IDF, FreeRTOS, STM32 HAL, bare-metal C/C++ |
+| **Firmware** | ESP-IDF, FreeRTOS, STM32 HAL, bare-metal C/C++, MicroPython, Python |
 | **Connectivity** | MQTT, LoRa, BLE, Wi-Fi, HTTP/REST, Modbus |
 | **IoT Platforms** | Node-RED, ThingsBoard, AWS IoT, Azure IoT Hub |
 | **Databases** | InfluxDB, MySQL, PostgreSQL |
