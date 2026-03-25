@@ -1,88 +1,95 @@
-# 👋 Hi there, I'm Daniyal Javed Choudhary!
+<h1 align="center">Muhammad Daniyal Javed Choudhary</h1>
+<h3 align="center">Embedded Firmware & IoT Engineer · ESP32 · STM32 · FreeRTOS · Node-RED · MQTT</h3>
 
-Welcome to my GitHub profile!  
-I’m an experienced Embedded & IoT Engineer with hands-on expertise in designing, developing, and deploying end-to-end solutions—from circuit design and microcontroller firmware to Node-RED dashboards, business automations, and cloud integrations,  with 1+ years of delivering smart automation, real-time dashboards, and custom embedded solutions for industries and individuals worldwide.
-
----
-
-## 🚀 About Me
-
-- **Embedded IoT & Automation Engineer**
-  - Develop custom firmware for IoT products and custom embedded system solutions for real-time monitoring and control for the industries
-  - Design custom real-time dashboards, smart automations, automation flows
-  - Expert in ESP-IDF, Node-RED, MQTT, ESP32, Raspberry Pi, Arduino, and Grafana
-  
-  
-- **Data Analytics Enthusiast**
-  - Skilled at transforming raw data into meaningful insights with state-of-the-art analytics and visualization tools
-  - Strong attention to detail and a commitment to professionalism
+<p align="center">
+  <a href="https://www.upwork.com/freelancers/~01a0053966b1f4ac5c">Upwork</a> ·
+  <a href="https://www.fiverr.com/daniyal_ch944">Fiverr</a> ·
+  <a href="https://www.linkedin.com/in/daniyal-choudhary">LinkedIn</a>
+</p>
 
 ---
 
-## 🏆 Featured Projects
+## What I Build
 
-- **[RFID Attendance Project](https://DaniyalJavedChoudhary/RFID-Attendance-Project)**  
-  An automated attendance system using RFID technology for secure, real-time attendance tracking and data logging.
+I design and deliver **complete hardware-to-cloud systems** — from bare-metal firmware on ESP32/STM32 to real-time IoT dashboards and cloud integrations. I work with clients who need:
 
-- **[Smart Energy Meter](https://github.com/DaniyalJavedChoudhary/Smart_Energy_meter)**  
-  A real-time energy monitoring and analytics solution, leveraging IoT sensors with Node-RED and Grafana dashboards for visualization.
+- **Industrial IoT & automation** — sensor networks, PLC-adjacent control, real-time monitoring
+- **Custom embedded firmware** — ESP-IDF, FreeRTOS, STM32 HAL, low-power optimization
+- **IoT dashboards & data pipelines** — Node-RED, ThingsBoard, Grafana, InfluxDB, MQTT
+- **Cloud integrations** — AWS IoT, Azure IoT Hub, REST/MQTT bridging
+- **PCB design & hardware bring-up** — schematic capture, layout, firmware bring-up
 
-- **[ESP32 Webserver (ESP-IDF)](https://github.com/DaniyalJavedChoudhary/Webserver_Project)**  
-  A robust ESP32 webserver project built with ESP-IDF, enabling efficient remote control and monitoring of IoT devices.
-
-- **Node-RED HubSpot CRM Automation (API Integration)**  
-  Developed advanced automation flows in Node-RED to seamlessly integrate with HubSpot CRM, automating customer data workflows and boosting productivity.
-
-*(Want to see more? Explore my GitHub repos for additional open-source projects and collaborations!)*
+> **Available for freelance projects.**  
+> 📋 [Hire me on Upwork](https://www.upwork.com/freelancers/~01a0053966b1f4ac5c) · 
+> 🎯 [Fiverr services](https://www.fiverr.com/daniyal_ch944)
 
 ---
 
-## 💼 Professional Services
+## Featured Projects
 
-I offer the following services on Fiverr, Upwork and for direct collaborations:
-
-- End-to-End IoT solution development (Raspberry Pi, ESP32, Arduino)
-- Custom Node-RED & Grafana dashboard design for IoT automation
-- API integration & automation (including platforms like HubSpot CRM)
-- Firmware development & cloud integration for IoT devices
-- Data analytics, visualization, and actionable reporting
-
-> Need a custom solution?  
-> 📂 [View my Fiverr services](https://www.fiverr.com/daniyal_ch944)
-> 📂 [View my Upwork Profile](https://www.upwork.com/freelancers/~01a0053966b1f4ac5c?mp_source=share)
+### 🛰️ Nova-SOC — LoRa Telemetry System
+ESP32 + STM32L0 field nodes transmitting encrypted sensor data over LoRa. Node-RED backend with MQTT, InfluxDB storage, and live dashboards. Deployed for a client monitoring remote industrial equipment.
+`ESP32` `STM32L0` `LoRa` `MQTT` `Node-RED` `InfluxDB` `AES-128`
 
 ---
 
-## 🛠️ Skills
-
-- IoT Devices Firmware Development
-- Experience with ESP-IDF, FREERTOS, & Real-Time IoT Systems
-- Node-RED & IoT Automation Flows
-- MQTT/HTTPS Protocol & OT Automations
-- Grafana & Data Visualization
-- Data Analytics & Database Management (MySQL, InfluxDB, PostgreSQL)
-- IoT Security (TLS, OAuth, Authentication)
-- Cloud IoT Platforms (AWS IoT, Google Cloud, Azure)
-- Programming: Python, C++
-- Real-time Data Monitoring
+### 🏭 Automated Batch Mixer — Industrial Control System
+FreeRTOS-based ESP32 firmware controlling a multi-stage industrial batch mixing process. State machine architecture, sensor feedback loops, and MQTT-based remote monitoring.
+`ESP32` `FreeRTOS` `ESP-IDF` `Industrial IoT` `State Machine` `MQTT`
 
 ---
 
-## 🌱 Current Focus
-
-- Building Device-to-Cloud Systems
-- Building scalable and interactive IoT dashboards
-- Enhancing smart automation for homes, energy, and industry
-- Exploring advanced data analytics for IoT systems
+### 🏊 SmartVac+ / LinerVac — Pool Management IoT System
+Raspberry Pi 5 running Dockerized Node-RED for automated pool equipment control. Remote monitoring, scheduling, and alert system for a commercial pool facility.
+`Raspberry Pi` `Docker` `Node-RED` `Embedded Linux` `IoT Automation`
 
 ---
 
-## 📫 Connect with Me
-
-- 💼 [Fiverr](https://www.fiverr.com/daniyal_ch944)
-- 💻 [Upwork](https://www.upwork.com/freelancers/~01a0053966b1f4ac5c?mp_source=share)
-- 🔗 [LinkedIn](https://www.linkedin.com/in/daniyal-choudhary)
+### 🌿 Greenhouse Automation — Multi-Zone Climate Control
+Node-RED Dashboard 2.0 controlling HVAC, irrigation, and lighting across multiple greenhouse zones. MQTT-driven with sensor thresholds, manual overrides, and data logging.
+`Node-RED` `MQTT` `Dashboard 2.0` `Automation` `Agriculture IoT`
 
 ---
 
-Let's collaborate and create impactful IoT and data analytics solutions together!
+### ⚡ Smart Energy Meter
+Real-time energy monitoring with CT sensors, ESP32, and a live Grafana dashboard. Tracks power consumption per circuit with anomaly alerting.
+`ESP32` `Grafana` `InfluxDB` `Energy Monitoring` `IoT`
+
+---
+
+### 🪪 RFID Attendance System
+RFID-based attendance tracker with Raspberry Pi, MQTT, and a Node-RED dashboard. Door access control, session logging, and real-time visualization.  
+👉 [View repo](https://github.com/DaniyalJavedChoudhary/RFID-Attendance-Project)
+`RFID` `Raspberry Pi` `MQTT` `Node-RED` `Access Control`
+
+---
+
+## Tech Stack
+
+| Layer | Tools |
+|---|---|
+| **Microcontrollers** | ESP32, ESP32-C6, STM32, Arduino, Raspberry Pi |
+| **Firmware** | ESP-IDF, FreeRTOS, STM32 HAL, bare-metal C/C++ |
+| **Connectivity** | MQTT, LoRa, BLE, Wi-Fi, HTTP/REST, Modbus |
+| **IoT Platforms** | Node-RED, ThingsBoard, AWS IoT, Azure IoT Hub |
+| **Databases** | InfluxDB, MySQL, PostgreSQL |
+| **Dashboards** | Grafana, Node-RED Dashboard 2.0, ThingsBoard |
+| **DevOps** | Docker, Linux, Git |
+| **PCB Design** | KiCad, schematic capture, hardware bring-up |
+
+---
+
+## Working With Me
+
+- 🌍 Based in Islamabad, Pakistan — available globally, async-friendly
+- 🕐 Typical response time: under 4 hours
+- 📦 Deliverables: source code, documentation, deployment support
+- 💬 Communication: clear updates throughout, no surprises
+
+📋 [Upwork profile — verified reviews](https://www.upwork.com/freelancers/~01a0053966b1f4ac5c)  
+🎯 [Fiverr — fixed-price IoT packages](https://www.fiverr.com/daniyal_ch944)  
+🔗 [LinkedIn](https://www.linkedin.com/in/daniyal-choudhary)
+
+---
+
+<p align="center"><i>Building the bridge between hardware and the cloud, one system at a time.</i></p>
