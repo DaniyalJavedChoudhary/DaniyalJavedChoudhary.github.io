@@ -4,7 +4,7 @@
 <p align="center">
   <a href="https://www.upwork.com/freelancers/~01a0053966b1f4ac5c">Upwork</a> ·
   <a href="https://www.fiverr.com/daniyal_ch944">Fiverr</a> ·
-  <a href="https://www.linkedin.com/in/daniyal-choudhary">LinkedIn</a>
+  <a href="https://www.linkedin.com/in/daniyal-choudhary">LinkedIn</a> ·
   <a href="https://embedron.vercel.app/">Embedron</a>
 </p>
 
