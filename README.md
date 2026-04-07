@@ -18,7 +18,7 @@ I design and deliver **complete hardware-to-cloud systems** — from bare-metal 
 - **Custom embedded firmware** — ESP-IDF, FreeRTOS, STM32 HAL, low-power optimization
 - **IoT dashboards & data pipelines** — Node-RED, ThingsBoard, Grafana, InfluxDB, MQTT
 - **Cloud integrations** — AWS IoT, Azure IoT Hub, REST/MQTT bridging
-- **PCB design & hardware bring-up** — schematic capture, layout, firmware bring-up
+
 
 > **Available for freelance projects.**  
 > 📋 [Hire me on Upwork](https://www.upwork.com/freelancers/~01a0053966b1f4ac5c) · 
@@ -76,8 +76,6 @@ RFID-based attendance tracker with Raspberry Pi, MQTT, and a Node-RED dashboard.
 | **Databases** | InfluxDB, MySQL, PostgreSQL |
 | **Dashboards** | Grafana, Node-RED Dashboard 2.0, ThingsBoard |
 | **DevOps** | Docker, Linux, Git |
-| **PCB Design** | KiCad, schematic capture, hardware bring-up |
-
 ---
 
 ## Working With Me
@@ -89,7 +87,8 @@ RFID-based attendance tracker with Raspberry Pi, MQTT, and a Node-RED dashboard.
 
 📋 [Upwork profile — verified reviews](https://www.upwork.com/freelancers/~01a0053966b1f4ac5c)  
 🎯 [Fiverr — fixed-price IoT packages](https://www.fiverr.com/daniyal_ch944)  
-🔗 [LinkedIn](https://www.linkedin.com/in/daniyal-choudhary)
+🔗 [LinkedIn](https://www.linkedin.com/in/daniyal-choudhary). 
+🔗 [Embedron](https://www.embedron.vercel.app/)
 
 ---
 
