@@ -855,10 +855,20 @@ footer a:hover{color:var(--lime)}
   geo.setAttribute('color',new THREE.BufferAttribute(col,3));
   scene.add(new THREE.Points(geo,new THREE.PointsMaterial({size:.1,vertexColors:true,transparent:true,opacity:.5})));
 
-  const ring=new THREE.github.iosh(new THREE.TorusGeometry(14,.03,6,80),new THREE.github.ioshBasicMaterial({color:0xc8f135,transparent:true,opacity:.07,wireframe:true}));
-  ring.position.set(18,-8,-20);scene.add(ring);
-  const ico=new THREE.github.iosh(new THREE.IcosahedronGeometry(6,1),new THREE.github.ioshBasicMaterial({color:0x4f8ef7,transparent:true,opacity:.05,wireframe:true}));
-  ico.position.set(-20,8,-25);scene.add(ico);
+  // ── FIXED: was THREE.github.iosh / THREE.github.ioshBasicMaterial ──
+  const ring=new THREE.Mesh(
+    new THREE.TorusGeometry(14,.03,6,80),
+    new THREE.MeshBasicMaterial({color:0xc8f135,transparent:true,opacity:.07,wireframe:true})
+  );
+  ring.position.set(18,-8,-20);
+  scene.add(ring);
+
+  const ico=new THREE.Mesh(
+    new THREE.IcosahedronGeometry(6,1),
+    new THREE.MeshBasicMaterial({color:0x4f8ef7,transparent:true,opacity:.05,wireframe:true})
+  );
+  ico.position.set(-20,8,-25);
+  scene.add(ico);
 
   let mx=0,my=0,t=0;
   document.addEventListener('mousemove',e=>{mx=(e.clientX/innerWidth-.5)*2;my=-(e.clientY/innerHeight-.5)*2;});
